@@ -1,0 +1,37 @@
+version: 2
+
+sources:
+  - name: dnb_shipping_insights
+    database: BUSINESS_INT_DBT        
+    schema:   PUBLIC                  
+    tables:
+      - name: shipments_raw           
+        description: "Seeded 1,000‑row sample of D&B Shipping Insights"
+        columns:
+          - name: shipment_unique_key
+            description: "Primary key for each shipment"
+            tests:
+              - unique
+              - not_null
+          - name: est_arrival_tme
+            description: "Estimated arrival timestamp"
+          - name: vessel_arrival_tme
+            description: "Actual vessel arrival timestamp"
+          - name: est_departure_tme
+            description: "Estimated departure timestamp"
+          - name: vessel_departure_tme
+            description: "Actual vessel departure timestamp"
+          - name: transshipment_cnt
+            description: "Number of transshipment events"
+          - name: container_nbr
+            description: "Container identifier"
+          - name: carrier_scac
+            description: "Carrier SCAC code"
+          - name: origin_port_code
+            description: "UN/LOCODE of origin port"
+          - name: dest_port_code
+            description: "UN/LOCODE of destination port"
+          - name: entry_tme
+            description: "Load timestamp (used for incremental logic)"
+            tests:
+              - not_null

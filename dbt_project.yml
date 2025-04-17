@@ -1,0 +1,52 @@
+# dbt_project.yml
+name: 'Business_Int'
+version: '1.0.0'
+
+# Which profile in ~/.dbt/profiles.yml to use
+profile: 'Business_Int'
+
+# Where to find different types of files
+model-paths:    ["models"]
+analysis-paths: ["analyses"]
+test-paths:     ["tests"]
+seed-paths:     ["seeds"]
+macro-paths:    ["macros"]
+snapshot-paths: ["snapshots"]
+
+# Directories cleaned by `dbt clean`
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# Global model settings
+models:
+  Business_Int:
+    # Override the target database & schema for every model
+    +database: BUSINESS_INT_DBT   # your own writable db
+    +schema:   PUBLIC             # the PUBLIC schema in your db
+
+    # Layer‑specific defaults
+    staging:
+      +materialized: incremental  # stage models build incrementally
+      +schema: staging            # sub‑folder/staging schema (optional)
+    core:
+      +materialized: incremental  # fact/dim models build incrementally
+      +schema: core               # sub‑folder/core schema (optional)
+    marts:
+      +materialized: table        # mart models build as tables
+      +schema: marts              # sub‑folder/marts schema (optional)
+seeds:
+  Business_Int:
+    shipments_raw:
+      header: true
+
+snapshot-paths: ["snapshots"]
+
+# (Optional) configure seeds, snapshots, etc.
+# seeds:
+#   Business_Int:
+#     +schema: seeds
+#
+# snapshots:
+#   Business_Int:
+#     +schema: snapshots
