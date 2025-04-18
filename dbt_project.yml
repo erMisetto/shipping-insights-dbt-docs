@@ -35,18 +35,19 @@ models:
     marts:
       +materialized: table        # mart models build as tables
       +schema: marts              # sub‑folder/marts schema (optional)
+
+# Seed configurations
 seeds:
   Business_Int:
     shipments_raw:
       header: true
-
-snapshot-paths: ["snapshots"]
-
-# (Optional) configure seeds, snapshots, etc.
-# seeds:
-#   Business_Int:
-#     +schema: seeds
-#
-# snapshots:
-#   Business_Int:
-#     +schema: snapshots
+    port_coordinates:
+      +column_types:
+        port_code: varchar
+        port_city: varchar
+        port_country: varchar
+        latitude: float
+        longitude: float
+        port_roles: varchar
+      +quote_columns: false
+      +schema: reference_data

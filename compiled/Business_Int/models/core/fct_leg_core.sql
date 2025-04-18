@@ -1,0 +1,50 @@
+
+
+with src as (
+
+    select *
+    from BUSINESS_INT_DBT.PUBLIC_staging.stg_shipping_insights
+
+    
+      where entry_tme > (select max(entry_tme) from BUSINESS_INT_DBT.PUBLIC_core.fct_leg_core)
+    
+
+)
+
+select
+    -- business grain
+    shipment_sk,
+    shipment_unique_key,
+    container_nbr,
+
+    1                                          as leg_sequence,       -- single‑leg sample
+
+    origin_port_code                           as departure_port_code,
+    dest_port_code                             as arrival_port_code,
+
+    vessel_departure_tme                       as actual_departure_tme,
+    vessel_arrival_tme                         as actual_arrival_tme,
+    est_departure_tme,
+    est_arrival_tme,
+
+    arrival_delay_hours,
+    departure_delay_hours,
+    transshipment_cnt,
+    is_transshipped,
+
+    -- date grains for clustering/partitioning
+    date(vessel_departure_tme)                 as leg_departure_date,
+    date_trunc('month', vessel_departure_tme::timestamp)  as leg_departure_month,
+    date(vessel_arrival_tme)                   as leg_arrival_date,
+
+    voyage_number,
+    vessel_nme,
+    vessel_imo_number,
+
+    md5(shipment_sk || '|' ||
+        origin_port_code || '|' ||
+        dest_port_code  || '|' ||
+        coalesce(vessel_departure_tme::string,''))  as leg_sk,
+
+    current_timestamp()                        as load_ts
+from src

@@ -1,10 +1,10 @@
-{{
-  config(
-    materialized = 'table',
-    unique_key   = 'port_id',
-    schema       = 'core'
-  )
-}}
+
+  
+    
+
+        create or replace transient table BUSINESS_INT_DBT.PUBLIC_core.dim_port
+         as
+        (
 
 with port_base as (
   -- Collect all origin ports
@@ -13,7 +13,7 @@ with port_base as (
          origin_port_city as port_city,
          origin_port_country as port_country,
          'Origin' as port_role
-  from {{ ref('stg_shipping_insights') }}
+  from BUSINESS_INT_DBT.PUBLIC_staging.stg_shipping_insights
   where origin_port_code is not null
 
   union all
@@ -24,7 +24,7 @@ with port_base as (
          dest_port_city as port_city,
          dest_port_country as port_country,
          'Destination' as port_role
-  from {{ ref('stg_shipping_insights') }}
+  from BUSINESS_INT_DBT.PUBLIC_staging.stg_shipping_insights
   where dest_port_code is not null
 ),
 
@@ -49,7 +49,7 @@ ports_with_coordinates as (
     c.latitude,
     c.longitude
   from port_consolidated p
-  left join {{ ref('port_coordinates') }} c 
+  left join BUSINESS_INT_DBT.PUBLIC_reference_data.port_coordinates c 
     on p.port_code = c.port_code
 )
 
@@ -64,3 +64,6 @@ select
     longitude,
     current_timestamp() as load_ts
 from ports_with_coordinates
+        );
+      
+  
