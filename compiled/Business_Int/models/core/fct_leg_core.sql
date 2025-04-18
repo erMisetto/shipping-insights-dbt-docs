@@ -6,6 +6,8 @@ with src as (
     from BUSINESS_INT_DBT.PUBLIC_staging.stg_shipping_insights
 
     
+      where entry_tme > (select max(entry_tme) from BUSINESS_INT_DBT.PUBLIC_core.fct_leg_core)
+    
 
 )
 
