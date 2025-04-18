@@ -1,6 +1,6 @@
 📦 Shipping Reliability Dashboard (Snowflake + dbt + Tableau)
 
-This project helps reduce late container arrivals and costly transshipments in global shipping by showing clear, actionable insights to stakeholders like freight forwarders, carriers, port operators, and insurers.
+This E2E pipeline project aims to reduce late container arrivals and costly transshipments in global shipping by showing clear, actionable insights to stakeholders like freight forwarders, carriers, port operators, and insurers.
 
 It uses an end-to-end data pipeline built with:
 
