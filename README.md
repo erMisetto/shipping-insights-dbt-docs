@@ -3,12 +3,10 @@
 <div align="center">
 
 ![Shipping Analytics](https://img.shields.io/badge/Analytics-Shipping_Intelligence-2E86C1?style=for-the-badge&logo=ship&logoColor=white)
-![Status](https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge)
-![Data Scale](https://img.shields.io/badge/Scale-54M+_Monthly_Records-orange?style=for-the-badge)
 
 [![Tableau](https://img.shields.io/badge/Tableau-Dashboard-E97627?style=for-the-badge&logo=tableau&logoColor=white)](https://public.tableau.com/app/profile/mattia.bianchi1534/viz/ShippingInsightsDashboardReliabilityDelayandPerformanceTrends/Dashboard1)
 [![dbt](https://img.shields.io/badge/dbt-Documentation-FF694B?style=for-the-badge&logo=dbt&logoColor=white)](https://ermisetto.github.io/shipping-insights-dbt-docs/)
-[![Snowflake](https://img.shields.io/badge/Snowflake-Data_Warehouse-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white)](#)
+
 
 **End-to-End Data Pipeline for Supply Chain Intelligence**
 
@@ -370,12 +368,6 @@ dbt docs serve  # Opens interactive documentation locally
 <tr>
 <td width="50%">
 
-### 🎯 **Near Term**
-- [ ] Scale to full 54M+ records
-- [ ] Real-time streaming integration
-- [ ] Advanced alerting system
-- [ ] API development
-
 </td>
 <td width="50%">
 
@@ -433,14 +425,7 @@ dbt docs serve  # Opens interactive documentation locally
 
 <div align="center">
 
-### 🌟 **Ready to Transform Your Data Into Business Value?**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](#)
-[![Portfolio](https://img.shields.io/badge/Portfolio-View_More_Projects-2E86C1?style=for-the-badge)](#)
-[![Email](https://img.shields.io/badge/Email-Get_In_Touch-D14836?style=for-the-badge&logo=gmail&logoColor=white)](#)
 
----
-
-*Built with ❤️ for the global shipping industry*
 
 </div>
