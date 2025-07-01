@@ -362,27 +362,6 @@ dbt docs serve  # Opens interactive documentation locally
 
 ---
 
-## 🔮 **Future Roadmap**
-
-<table>
-<tr>
-<td width="50%">
-
-</td>
-<td width="50%">
-
-### 🚀 **Long Term**
-- [ ] ML-powered delay prediction
-- [ ] Route optimization algorithms
-- [ ] Mobile app development
-- [ ] IoT sensor integration
-
-</td>
-</tr>
-</table>
-
----
-
 ## 👨‍💼 **About the Developer**
 
 <div align="center">
